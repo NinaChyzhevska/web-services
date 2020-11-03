@@ -1,0 +1,41 @@
+plugins {
+    id 'io.qameta.allure' version '2.8.1'
+    id 'java'
+}
+
+group 'com.nina'
+version '1.0-SNAPSHOT'
+
+sourceCompatibility = 1.8
+
+allure {
+    autoconfigure = true
+    version = '2.13.6'
+
+    useJUnit5 {
+        version = '2.13.6'
+    }
+}
+
+repositories {
+    jcenter()
+    mavenCentral()
+}
+
+dependencies {
+    compile group: 'org.apache.commons', name: 'commons-lang3', version: '3.11'
+    testImplementation 'org.junit.jupiter:junit-jupiter-api:5.3.1'
+    testImplementation 'io.rest-assured:rest-assured:4.3.1'
+    testRuntimeOnly 'org.junit.jupiter:junit-jupiter-engine:5.3.1'
+    compile group: 'com.fasterxml.jackson.core', name: 'jackson-core', version: '2.11.3'
+    compile group: 'com.fasterxml.jackson.core', name: 'jackson-databind', version: '2.11.3'
+
+}
+
+test {
+    useJUnitPlatform()
+
+    testLogging {
+        events "passed", "skipped", "failed", "standardOut", "standardError"
+    }
+}
