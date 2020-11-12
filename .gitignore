@@ -2,3 +2,11 @@
 .allure/
 .gradle/
 /build/
+/.gradle/
+/.settings/
+/.idea/
+*.iml
+/target/
+/out/
+/bin/
+/report/
